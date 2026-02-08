@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../config/firebaseConfig";
 
@@ -69,7 +69,7 @@ export const login = createAsyncThunk(
                     uid: user.uid,
                     email: user.email,
                     name: userData.name,
-                    emai: userData.email
+                    role: userData.role,
 
                 };
             } else {
@@ -140,17 +140,17 @@ export const authSlice = createSlice({
             })
             // login
             .addCase(login.pending, (state) => {
-                state.loading = true;
+                state.status = 'loading';
                 state.error = null;
             })
             .addCase(login.fulfilled, (state, action) => {
-                state.loading = false;
+                state.status = 'succeeded';
                 state.user = action.payload;
                 state.isAuthenticated = true;
                 state.error = null;
             })
             .addCase(login.rejected, (state, action) => {
-                state.loading = false;
+                state.status = 'failed';
                 state.error = action.payload || { message: "An error occurred" };
                 state.isAuthenticated = false;
             });

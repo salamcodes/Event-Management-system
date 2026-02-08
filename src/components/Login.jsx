@@ -15,14 +15,18 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const credentials = { email, password };
-        dispatch(Login(credentials))
+        console.log(credentials)
+        dispatch(login(credentials))
+
+        setEmail('');
+        setPassword('')
     };
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
             <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
                 {/* Header Section */}
-                <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-10 text-center text-white">
+                <div className="bg-linear-to-r from-indigo-600 to-blue-600 px-8 py-10 text-center text-white">
                     <h1 className="text-3xl font-extrabold tracking-tight">Welcome Back</h1>
                     <p className="mt-2 text-indigo-100">Manage your events with ease</p>
                 </div>
