@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../redux/reducers/authSlice';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const [name, setName] = useState('');
@@ -16,6 +17,10 @@ const SignUp = () => {
         e.preventDefault();
         const userData = { name, email, password };
         dispatch(signUp(userData));
+
+        setName('')
+        setEmail('')
+        setPassword('')
     }
 
     return (
@@ -49,7 +54,7 @@ const SignUp = () => {
                         </div>
 
                         <div>
-                            <label className="mb-1 block text-sm font-semibold text-gray-700">Work Email</label>
+                            <label className="mb-1 block text-sm font-semibold text-gray-700">Email</label>
                             <input
                                 type="email"
                                 required
@@ -76,7 +81,7 @@ const SignUp = () => {
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className={`w-full flex justify-center items-center rounded-lg py-3 font-bold text-white shadow-md transition-all active:scale-[0.98] ${status === 'loading'
+                            className={`w-full flex justify-center items-center rounded-lg py-3 font-bold text-white shadow-md transition-all active:scale-[0.98] cursor-pointer ${status === 'loading'
                                 ? 'bg-indigo-400 cursor-not-allowed'
                                 : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg'
                                 }`}
@@ -97,7 +102,11 @@ const SignUp = () => {
 
                     <div className="mt-8 text-center text-sm text-gray-500">
                         Already Registered?{' '}
-                        <button className="font-bold text-indigo-600 hover:text-indigo-500">Log in</button>
+                        <button className="font-bold text-indigo-600 hover:text-indigo-500">
+                            <Link to={'/login'} >
+                                Log in
+                            </Link>
+                        </button>
                     </div>
                 </div>
             </div>

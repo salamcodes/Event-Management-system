@@ -131,6 +131,7 @@ export const authSlice = createSlice({
             })
             .addCase(signUp.fulfilled, (state) => {
                 state.status = 'succeeded';
+                state.user = action.payload;
                 state.error = null;
                 state.isAuthenticated = true
             })
@@ -159,5 +160,5 @@ export const authSlice = createSlice({
 
 })
 
-
+export const { LogOut, setUser } = authSlice.actions;
 export default authSlice.reducer;

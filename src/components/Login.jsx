@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/reducers/authSlice';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
         const credentials = { email, password };
         console.log(credentials)
         dispatch(login(credentials))
+
 
         setEmail('');
         setPassword('')
@@ -49,7 +51,7 @@ const Login = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 transition-all focus:border-indigo-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                                placeholder="name@company.com"
+                                placeholder="name@example.com"
                             />
                         </div>
 
@@ -71,15 +73,15 @@ const Login = () => {
                             />
                         </div>
 
-                        {/* Remember Me */}
+                        {/* show password */}
                         <div className="flex items-center">
                             <input
                                 id="remember"
                                 type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                             />
-                            <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
-                                Remember this device
+                            <label htmlFor="remember" className="ml-2 text-sm text-gray-600 cursor-pointer">
+                                Show Password
                             </label>
                         </div>
 
@@ -114,9 +116,14 @@ const Login = () => {
                     </div> */}
 
                     {/* Footer Link */}
-                    <div className="text-center text-sm text-gray-500">
+                    <div className="text-center text-sm text-gray-500 ">
                         Don't have an account?{' '}
-                        <button className="font-bold text-indigo-600 hover:text-indigo-500">Create one</button>
+                        <button className="font-bold text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                            <Link to={'/signup'} >
+                                Create one
+                            </Link>
+                        </button>
+
                     </div>
                 </div>
             </div>
