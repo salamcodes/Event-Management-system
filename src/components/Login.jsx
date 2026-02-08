@@ -1,36 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/reducers/authSlice';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
-    const { status, error } = useSelector((state) => state.auth);
+    const { status, error, user, isAuthenticated } = useSelector((state) => state.auth);
+
+    // Effect to handle redirection after successful login
+    useEffect(() => {
+        if (isAuthenticated && user) {
+            // Check role: Organizer (Admin) vs Attendee (User)
+            // Using roles from project documentation 
+            if (user.role === 'admin' || user.role === 'organizer') {
+                navigate('/organizer-dashboard'); // Landing page for Admin 
+            } else {
+                navigate('/'); // Landing page for Attendee (Home/Events) 
+            }
+        }
+    }, [isAuthenticated, user, navigate]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const credentials = { email, password };
-        console.log(credentials)
-        dispatch(login(credentials))
+        dispatch(login(credentials));
 
-
-        setEmail('');
-        setPassword('')
     };
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
             <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
-                {/* Header Section */}
+
                 <div className="bg-linear-to-r from-indigo-600 to-blue-600 px-8 py-10 text-center text-white">
+            
                     <h1 className="text-3xl font-extrabold tracking-tight">Welcome Back</h1>
-                    <p className="mt-2 text-indigo-100">Manage your events with ease</p>
+                    <p className="mt-2 text-indigo-100">Sign in to manage your tickets .</p>
                 </div>
 
                 <div className="px-8 py-10">
@@ -64,7 +75,7 @@ const Login = () => {
                                 </button>
                             </div>
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -73,21 +84,22 @@ const Login = () => {
                             />
                         </div>
 
-                        {/* show password */}
+                        {/* Show Password Toggle */}
                         <div className="flex items-center">
                             <input
-                                id="remember"
+                                id="show-password"
                                 type="checkbox"
+                                checked={showPassword}
+                                onChange={() => setShowPassword(!showPassword)}
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                             />
-                            <label htmlFor="remember" className="ml-2 text-sm text-gray-600 cursor-pointer">
+                            <label htmlFor="show-password" className="ml-2 text-sm text-gray-600 cursor-pointer">
                                 Show Password
                             </label>
                         </div>
 
                         {/* Login Button */}
                         <button
-                            onClick={handleSubmit}
                             type="submit"
                             disabled={status === 'loading'}
                             className={`w-full flex justify-center items-center rounded-lg py-3 font-bold text-white shadow-md transition-all active:scale-[0.98] ${status === 'loading'
@@ -109,21 +121,11 @@ const Login = () => {
                         </button>
                     </form>
 
-                    {/* Social Login Divider */}
-                    {/* <div className="relative my-8 text-center">
-                        <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200"></div></div>
-                        <span className="relative bg-white px-4 text-xs uppercase text-gray-400 font-medium tracking-wider">or continue with</span>
-                    </div> */}
-
-                    {/* Footer Link */}
-                    <div className="text-center text-sm text-gray-500 ">
+                    <div className="text-center text-sm text-gray-500 mt-8">
                         Don't have an account?{' '}
-                        <button className="font-bold text-indigo-600 hover:text-indigo-500 cursor-pointer">
-                            <Link to={'/signup'} >
-                                Create one
-                            </Link>
-                        </button>
-
+                        <Link to="/signup" className="font-bold text-indigo-600 hover:text-indigo-500">
+                            Create one
+                        </Link>
                     </div>
                 </div>
             </div>

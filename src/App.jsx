@@ -8,6 +8,7 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Dashboard from './pages/users/Dashboard'
 import AdminPanel from './pages/admin/AdminPanel'
+import Mytickets from "./pages/users/Mytickets";
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mytickets"
+            element={
+              <ProtectedRoute>
+                <Mytickets />
               </ProtectedRoute>
             }
           />
