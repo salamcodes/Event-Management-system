@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../../components/Sidebar.jsx';
-import EventForm from '../../components/EventForm.jsx.'
+import EventForm from '../../components/EventForm.jsx'
 
 
 const AddEvent = () => {
