@@ -44,35 +44,35 @@ const EventForm = () => {
     };
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-        const result = await dispatch(addEvent(eventData)).unwrap();
-        
-        // ✅ Only navigate if successful
-        if (result) {
-            // Clear form fields
-            setEventName('');
-            setOrganizer('');
-            setDate('');
-            setTime('');
-            setLocation('');
-            setCapacity('');
-            setPrice('');
-            setStatus('');
-            setImageUrl('');
-            setDescription('');
-            
-            
-            setTimeout(() => {
-                navigate('/admin/events');
-            }, 1500); 
+        e.preventDefault();
+
+        try {
+            const result = await dispatch(addEvent(eventData)).unwrap();
+
+
+            if (result) {
+
+                setEventName('');
+                setOrganizer('');
+                setDate('');
+                setTime('');
+                setLocation('');
+                setCapacity('');
+                setPrice('');
+                setStatus('');
+                setImageUrl('');
+                setDescription('');
+
+
+                setTimeout(() => {
+                    navigate('/admin/events');
+                }, 1500);
+            }
+        } catch (error) {
+
+            console.error('Failed to add event:', error);
         }
-    } catch (error) {
-        
-        console.error('Failed to add event:', error);
-    }
-};
+    };
 
     useEffect(() => {
         if (success) {
