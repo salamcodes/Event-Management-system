@@ -3,8 +3,8 @@ import { db, auth } from '../../config/firebaseConfig';
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { Ticket, Calendar, MapPin, QrCode, Search, Loader2 } from 'lucide-react';
 import QRCode from "react-qr-code";
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar.jsx';
+import Footer from '../../components/Footer.jsx';
 
 const MyTickets = () => {
   const [tickets, setTickets] = useState([]);

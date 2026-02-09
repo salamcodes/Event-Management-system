@@ -1,7 +1,7 @@
 import React from 'react';
-import Sidebar from '../../components/Sidebar';
-import EventForm from '../../components/EventForm';
-import Footer from '../../components/Footer';
+import Sidebar from '../../components/Sidebar.jsx';
+import EventForm from '../../components/EventForm.jsx.'
+
 
 const AddEvent = () => {
     return (
@@ -27,7 +27,7 @@ const AddEvent = () => {
                     </div>
                 </main>
             </div>
-            <Footer />
+           
         </div>
     );
 };

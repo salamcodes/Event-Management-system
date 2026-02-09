@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import HeroCarousel from '../components/HeroCarousel'
+import Navbar from '../components/Navbar.jsx'
+import HeroCarousel from '../components/HeroCarousel.jsx'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
-import TicketSuccess from '../../components/Ticketsuccess'
+import Navbar from '../../components/Navbar.jsx'
+import TicketSuccess from '../../components/TicketSuccess.jsx'
 
 const TicketPage = () => {
     return (

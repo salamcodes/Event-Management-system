@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addTicket, clearTicketsSuccess, selectTicketsLoading, selectTicketsSuccess } from "../../redux/reducers/ticketSlice";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar.jsx";
+import Footer from "../../components/Footer.jsx";
 
 const BookTicket = () => {
     const { id } = useParams();
@@ -33,10 +33,9 @@ const BookTicket = () => {
         dispatch(addTicket({
             eventId: id,
             name: formData.name,
-            email: formData.email,
+            email: formData.email.toLowerCase(),
             phone: formData.phone,
             quantity: Number(formData.quantity)
-
         }));
     };
 

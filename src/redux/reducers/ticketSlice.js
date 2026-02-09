@@ -12,21 +12,25 @@ export const addTicket = createAsyncThunk(
             const ticketId = `${eventId}_${auth.currentUser.uid}`;
             const ticketRef = doc(db, "tickets", ticketId);
 
-            await setDoc(ticketRef, {
+            const ticketData = {
+                ticketId,
                 eventId,
                 userId: auth.currentUser.uid,
                 name,
                 email,
                 phone,
                 quantity,
+                isValidated: false,
                 createdAt: new Date().toISOString(),
-            });
+            };
 
-            // Increment attendee count
+            await setDoc(ticketRef, ticketData);
+
+            // Increment attendee count in the event document
             const eventRef = doc(db, "events", eventId);
             await updateDoc(eventRef, { attendees: increment(quantity) });
 
-            return { eventId, ticketId, name, email, phone, userId: auth.currentUser.uid };
+            return ticketData;
         } catch (err) {
             console.error(err);
             return rejectWithValue(err.message || "Failed to book ticket");

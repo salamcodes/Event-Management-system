@@ -1,11 +1,11 @@
 
 import { Calendar, MapPin, Users, Ticket, ArrowLeft, Clock, ShieldCheck, Share2 } from 'lucide-react';
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar.jsx'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEventById, selectCurrentEvent, selectEventsLoading, selectEventsError } from '../../redux/reducers/EventSlice';
 import { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer.jsx';
 
 
 const EventDetail = () => {
@@ -195,7 +195,7 @@ const EventDetail = () => {
                 </main>
             </div>
             );
-<Footer />
+            <Footer />
 
         </>
     )
