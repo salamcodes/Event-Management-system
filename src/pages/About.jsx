@@ -1,6 +1,6 @@
 import { Target, Users, Zap, ShieldCheck, Globe, Rocket, Heart } from 'lucide-react';
 import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsxNavbar.jsx';
+import Footer from '../components/Footer.jsx';
 
 
 

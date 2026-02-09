@@ -27,7 +27,7 @@ const AddEvent = () => {
                     </div>
                 </main>
             </div>
-           
+
         </div>
     );
 };
