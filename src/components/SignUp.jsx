@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../redux/reducers/authSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
     const dispatch = useDispatch();
 
@@ -17,6 +18,8 @@ const SignUp = () => {
         e.preventDefault();
         const userData = { name, email, password };
         dispatch(signUp(userData));
+
+        navigate('/login')
 
     }
 
