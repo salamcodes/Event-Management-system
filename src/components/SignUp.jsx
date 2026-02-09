@@ -18,9 +18,6 @@ const SignUp = () => {
         const userData = { name, email, password };
         dispatch(signUp(userData));
 
-        setName('')
-        setEmail('')
-        setPassword('')
     }
 
     return (

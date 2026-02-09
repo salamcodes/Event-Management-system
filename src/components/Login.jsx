@@ -14,15 +14,13 @@ const Login = () => {
 
     const { status, error, user, isAuthenticated } = useSelector((state) => state.auth);
 
-    // Effect to handle redirection after successful login
     useEffect(() => {
         if (isAuthenticated && user) {
-            // Check role: Organizer (Admin) vs Attendee (User)
-            // Using roles from project documentation 
-            if (user.role === 'admin' || user.role === 'organizer') {
-                navigate('/organizer-dashboard'); // Landing page for Admin 
+
+            if (user?.role === 'admin') {
+                navigate('/admin');
             } else {
-                navigate('/'); // Landing page for Attendee (Home/Events) 
+                navigate('/');
             }
         }
     }, [isAuthenticated, user, navigate]);
@@ -39,7 +37,7 @@ const Login = () => {
             <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
 
                 <div className="bg-linear-to-r from-indigo-600 to-blue-600 px-8 py-10 text-center text-white">
-            
+
                     <h1 className="text-3xl font-extrabold tracking-tight">Welcome Back</h1>
                     <p className="mt-2 text-indigo-100">Sign in to manage your tickets .</p>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import HeroCarousel from '../components/HeroCarousel'
 import EventCard from '../components/EventCard'
+import { events } from '../data/eventData'
 
 const Home = () => {
   return (
@@ -20,7 +21,9 @@ const Home = () => {
 
           {/* Event Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <EventCard />
+            {events.map(event => (
+              <EventCard key={event.id} event={event} />
+            ))}
           </div>
         </main>
       </div>

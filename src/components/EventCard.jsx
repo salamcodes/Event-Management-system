@@ -2,23 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
 
-const EventCard = () => {
-    const event = {
 
+const EventCard = () => {
+
+    const event = {
         id: "1",
         title: "Global Tech Summit 2024",
-        image: "https://images.unsplash.com/photo-1540575861501-7ad0582373f3?q=80&w=1000",
+        image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D",
         date: "Oct 24, 2024 • 10:00 AM",
         location: "Silicon Valley Center, CA",
         category: "Technology",
-        price: 49
-
+        price: 49,
+        description: "Join the world's leading tech innovators for a day of networking and groundbreaking announcements."
     }
-
 
     return (
         <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
             {/* Image Container */}
+
+
             <div className="relative h-48 overflow-hidden">
                 <img
                     src={event.image}
@@ -60,13 +62,16 @@ const EventCard = () => {
 
                 {/* Action Button */}
                 <Link
-                    to={`/event/${event.id}`}
+                    to={`/{event.id}`}
                     className="mt-auto w-full inline-flex items-center justify-center bg-gray-50 text-indigo-600 font-bold py-3 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300"
                 >
                     View Details
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
             </div>
+
+
+
         </div>
     );
 };
