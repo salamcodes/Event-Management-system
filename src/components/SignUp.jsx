@@ -14,15 +14,19 @@ const SignUp = () => {
 
     const { status, error } = useSelector((state) => state.auth);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         const userData = { name, email, password };
-        dispatch(signUp(userData));
 
-        navigate('/login')
+        try {
 
+            const result = await dispatch(signUp(userData)).unwrap();
+
+            navigate('/login');
+        } catch (error) {
+            console.error('Signup failed:', error);
+        }
     }
-
     return (
         <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
             <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
