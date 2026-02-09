@@ -39,9 +39,9 @@ const AdminPanel = () => {
 
   const statsCards = [
     { title: 'Total Events', value: events.length, icon: <Calendar size={20} />, textColor: 'text-indigo-600', lightColor: 'bg-indigo-50' },
-    { title: 'Total Attendees', value: totalAttendees.toLocaleString(), textColor: 'text-emerald-600', lightColor: 'bg-emerald-50' },
-    { title: 'Validated', value: ticketsValidated.toLocaleString(), textColor: 'text-blue-600', lightColor: 'bg-blue-50' },
-    { title: 'Revenue', value: `Rs. ${totalRevenue.toLocaleString()}`, textColor: 'text-purple-600', lightColor: 'bg-purple-50' },
+    { title: 'Total Attendees', value: totalAttendees.toLocaleString(),  icon: <Users size={20} />, textColor: 'text-emerald-600', lightColor: 'bg-emerald-50' },
+    { title: 'Validated', value: ticketsValidated.toLocaleString(), icon: <TicketCheck size={20} />, textColor: 'text-blue-600', lightColor: 'bg-blue-50' },
+    { title: 'Revenue', value: `Rs. ${totalRevenue.toLocaleString()}`, icon: <DollarSign size={20} />, textColor: 'text-purple-600', lightColor: 'bg-purple-50' },
   ];
 
 
