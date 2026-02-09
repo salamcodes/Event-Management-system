@@ -6,9 +6,9 @@ import { Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from './components/Login'
 import SignUp from './components/SignUp'
-import Dashboard from './pages/users/Dashboard'
+
 import AdminPanel from './pages/admin/AdminPanel'
-import MyTickets from "./pages/users/MyTickets.jsx";
+import MyTickets from "./pages/users/MyTickets";
 import EventDetail from "./pages/users/EventDetail";
 
 import ManageEvent from './pages/admin/ManageEvent'
@@ -34,14 +34,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
 
           {/* Logged-in users */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
           <Route
             path="/mytickets"
             element={
