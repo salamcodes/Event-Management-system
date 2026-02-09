@@ -6,10 +6,10 @@ import EventForm from '../../components/EventForm.jsx'
 const AddEvent = () => {
     return (
         <div className="flex h-screen bg-slate-50 overflow-hidden">
-           
+
             <Sidebar />
 
-            
+
             <div className="flex-1 flex flex-col min-w-0 overflow-y-auto lg:pl-0">
 
                 <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30">

@@ -18,7 +18,7 @@ export const addEvent = createAsyncThunk(
     'events/add',
     async (eventData, { rejectWithValue }) => {
         try {
-
+            const eventsRef = collection(db, "events");
             const docRef = await addDoc(eventsRef, {
                 ...eventData,
                 price: Number(eventData.price),

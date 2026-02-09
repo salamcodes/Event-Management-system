@@ -88,13 +88,13 @@ const EventForm = () => {
 
             {success && (
                 <div className="mx-8 mt-6 p-4 rounded-2xl bg-green-50 text-green-700 font-bold text-sm">
-                    ✅ Event added successfully!
+                     Event added successfully!
                 </div>
             )}
 
             {error && (
                 <div className="mx-8 mt-6 p-4 rounded-2xl bg-red-50 text-red-700 font-bold text-sm">
-                    ❌ {error.message || 'Something went wrong'}
+                     {error.message || 'Something went wrong'}
                 </div>
             )}
 
