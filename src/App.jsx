@@ -8,7 +8,7 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 
 import AdminPanel from './pages/admin/AdminPanel'
-import MyTickets from "./pages/users/temp";
+import MyTickets from "./pages/users/MyTickets";
 import EventDetail from "./pages/users/EventDetail";
 
 import ManageEvent from './pages/admin/ManageEvent'
