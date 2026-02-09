@@ -13,6 +13,7 @@ import {
   selectEventsLoading,
   selectEventsError,
 } from '../redux/reducers/EventSlice';
+import Footer from '../components/Footer'
 
 const Home = () => {
 
@@ -71,7 +72,7 @@ const Home = () => {
 
                     <div className="absolute bottom-4 right-4">
                       <span className="bg-indigo-600 text-white text-sm font-bold px-3 py-1 rounded-lg shadow-lg">
-                        {event.price === "0" ? "Free" : `$${event.price}`}
+                        {event.price === 0 ? "Free" : `$${event.price}`}
                       </span>
                     </div>
                   </div>
@@ -112,6 +113,7 @@ const Home = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </>
   )
 }

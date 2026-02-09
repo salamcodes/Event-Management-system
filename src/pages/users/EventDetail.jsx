@@ -4,7 +4,9 @@ import Navbar from '../../components/Navbar'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEventById, selectCurrentEvent, selectEventsLoading, selectEventsError } from '../../redux/reducers/EventSlice';
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Footer from '../../components/Footer';
+
 
 const EventDetail = () => {
     const { id } = useParams();
@@ -13,6 +15,8 @@ const EventDetail = () => {
     const loading = useSelector(selectEventsLoading);
     const error = useSelector(selectEventsError);
     const event = useSelector(selectCurrentEvent);
+    const user = useSelector(state => state.auth)
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (id) {
@@ -22,6 +26,15 @@ const EventDetail = () => {
 
     if (!event) {
         return null
+    }
+    function getTicket(id) {
+        if (!user) {
+            console.log("user nhi hai")
+            navigate(`/login?redirect=/${id}`);
+        } else {
+            console.log("chala jaa bsdk")
+            navigate(`/book-ticket/${id}`);
+        }
     }
 
     return (
@@ -133,7 +146,7 @@ const EventDetail = () => {
                                     <div className="flex justify-between items-center mb-6">
                                         <span className="text-gray-500 font-medium">Ticket Price</span>
                                         <span className="text-4xl font-black text-indigo-600">
-                                            {event.price === "0" ? "Free" : `Rs. ${event.price}`}
+                                            {event.price === "0" ? "Free" : `Rs.${event.price}`}
                                         </span>
                                     </div>
 
@@ -152,9 +165,11 @@ const EventDetail = () => {
                                         </div>
                                     </div>
 
-                                    <button className="w-full bg-indigo-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2">
+                                    <button
+                                        onClick={() => getTicket(event.id)}
+                                        className="w-full bg-indigo-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 cursor-pointer">
                                         <Ticket className="w-5 h-5" />
-                                        Get Your Ticket
+                                        {event.price === "0" ? "Get Free Ticket" : "Get Your Ticket"}
                                     </button>
 
                                     <p className="text-center text-[10px] text-gray-400 mt-4 uppercase font-bold tracking-widest">
@@ -180,7 +195,7 @@ const EventDetail = () => {
                 </main>
             </div>
             );
-
+<Footer />
 
         </>
     )

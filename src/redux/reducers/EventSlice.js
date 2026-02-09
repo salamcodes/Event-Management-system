@@ -19,24 +19,24 @@ export const addEvent = createAsyncThunk(
     async (eventData, { rejectWithValue }) => {
         try {
 
-            const eventsRef = collection(db, "events");
-
-
             const docRef = await addDoc(eventsRef, {
                 ...eventData,
-                createdBy: auth.currentUser?.uid || null,
-                status: eventData.status || 'upcoming',
+                price: Number(eventData.price),
+                capacity: Number(eventData.capacity),
                 attendees: 0,
                 ticketsValidated: 0,
+                createdBy: auth.currentUser?.uid || null,
+                status: eventData.status || 'upcoming',
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
             });
 
-            // Return the created event with its ID
+
+
             return {
                 id: docRef.id,
                 ...eventData,
                 createdBy: auth.currentUser?.uid || null,
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString(),
                 status: eventData.status || 'upcoming',
                 attendees: 0,
                 ticketsValidated: 0,
@@ -62,9 +62,13 @@ export const fetchEvents = createAsyncThunk(
 
             const events = [];
             querySnapshot.forEach((doc) => {
+                const data = doc.data();
                 events.push({
                     id: doc.id,
-                    ...doc.data()
+                    ...data,
+                    price: Number(data.price),
+                    capacity: Number(data.capacity),
+                    attendees: Number(data.attendees),
                 });
             });
 

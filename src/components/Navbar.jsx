@@ -82,7 +82,7 @@ const Navbar = () => {
                                 {/* Attendee Dropdown Menu */}
                                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 border border-gray-100 overflow-hidden">
                                     <Link to="/profile" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Profile Settings</Link>
-                                    <Link to="/my-tickets" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Booked Events</Link>
+                                    <Link to="/" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Booked Events</Link>
                                     <div className="h-px bg-gray-100 my-1"></div>
                                     <button
                                         onClick={handleLogout}
@@ -122,7 +122,7 @@ const Navbar = () => {
             <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${open ? 'max-h-screen border-t' : 'max-h-0'}`}>
                 <div className="px-4 py-6 space-y-3">
                     <NavLink to="/" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-indigo-50">Explore Events</NavLink>
-                    <NavLink to="/my-tickets" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-indigo-50">My Tickets</NavLink>
+                    <NavLink to="/mytickets" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-indigo-50">My Tickets</NavLink>
                     <NavLink to="/about" onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl text-base font-semibold text-gray-700 hover:bg-indigo-50">About Us</NavLink>
 
                     <div className="pt-4 border-t border-gray-100 mt-4">

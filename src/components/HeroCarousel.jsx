@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const slides = [
     {
         id: 1,
-        title: "Tech Innovators Summit 2024",
+        title: "Ai Indus Week 2026",
         description: "Join the brightest minds in technology for a day of inspiration and networking.",
-        image: "https://images.unsplash.com/photo-1540575861501-7ad0582373f3?auto=format&fit=crop&q=80&w=1200",
+        image: "https://xnovzibnypchvlpxqziy.supabase.co/storage/v1/object/public/user-avatars/blogs/covers/indus-ai-week-2026--complete-guide---registration---events-1769504943962/1769513051085-Untitled_design_20.png",
         buttonText: "Book Now",
         link: "/event/1"
     },
@@ -14,7 +14,7 @@ const slides = [
         id: 2,
         title: "Global Music Festival",
         description: "Experience live performances from world-class artists under the stars.",
-        image: "https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&q=80&w=1200",
+        image: "https://images.unsplash.com/photo-1582711012124-a56cf82307a0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VtbWVyJTIwZmVzdGl2YWx8ZW58MHx8MHx8fDA%3D",
         buttonText: "Get Tickets",
         link: "/event/2"
     },

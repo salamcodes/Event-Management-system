@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../../components/Sidebar';
 import EventForm from '../../components/EventForm';
+import Footer from '../../components/Footer';
 
 const AddEvent = () => {
     return (
@@ -8,11 +9,9 @@ const AddEvent = () => {
             {/* Sidebar: Fixed height and width */}
             <Sidebar />
 
-            {/* Main Content Area: Scrollable independently */}
+            {/* main */}
             <div className="flex-1 flex flex-col min-w-0 overflow-y-auto lg:pl-0">
-                {/* Note: Since your Sidebar is 'fixed' on mobile and 'sticky' on desktop, 
-                   we use a wrapper that allows this area to scroll.
-                */}
+
                 <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30">
                     <div className="px-8 py-6">
                         <h1 className="text-3xl font-black text-slate-900">Manage Events</h1>
@@ -23,11 +22,12 @@ const AddEvent = () => {
                 </header>
 
                 <main className="p-4 md:p-8 flex-1">
-                    <div className="max-w-4xl mx-auto pb-20"> {/* pb-20 ensures space at the bottom */}
+                    <div className="max-w-4xl mx-auto pb-20">
                         <EventForm />
                     </div>
                 </main>
             </div>
+            <Footer />
         </div>
     );
 };
