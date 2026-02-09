@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Providers/AuthProvider";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import AdminRoute from "./Routes/AdminRoute";
-
+import { Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from './components/Login'
 import SignUp from './components/SignUp'
@@ -10,10 +10,11 @@ import Dashboard from './pages/users/Dashboard'
 import AdminPanel from './pages/admin/AdminPanel'
 import Mytickets from "./pages/users/Mytickets";
 import EventDetail from "./pages/users/EventDetail";
-import AdminLayout from "./pages/admin/AdminLayout";
+
 import ManageEvent from './pages/admin/ManageEvent'
 import AttendeeList from "./pages/admin/AttendeeList";
 import TicketValidation from "./pages/admin/TicketValidation";
+import AddEvent from './pages/admin/AddEvent'
 
 
 function App() {
@@ -46,18 +47,61 @@ function App() {
             }
           />
 
+          <Route
+            path="/admin/dashboard"
+            element={
+              <AdminRoute>
+                <AdminPanel />
+              </AdminRoute>
+            }
+          />
 
-          <Route path="/admin" element={<AdminPanel />}>
+          <Route
+            path="/admin/events"
+            element={
+              <AdminRoute>
+                <ManageEvent />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/events/add"
+            element={
+              <AdminRoute>
+                <AddEvent />
+              </AdminRoute>
+            }
+          />
 
-            <Route path="dashboard" element={<AdminPanel />} />
-            <Route path="events" element={<ManageEvent />} />
-            <Route path="attendees" element={<AttendeeList />} />
-            <Route path="validate" element={<TicketValidation />} />
-          </Route>
+          <Route
+            path="/admin/attendees"
+            element={
+              <AdminRoute>
+                <AttendeeList />
+              </AdminRoute>
+            }
+          />
 
+          <Route
+            path="/admin/validate"
+            element={
+              <AdminRoute>
+                <TicketValidation />
+              </AdminRoute>
+            }
+          />
+
+
+
+          {/* Default Routes */}
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
         </Routes>
+
+
       </AuthProvider>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 
