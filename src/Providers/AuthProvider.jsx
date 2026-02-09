@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../config/firebaseConfig';
-import { setUser, logOut } from '../redux/reducers/authSlice'
+import { setUser } from '../redux/reducers/authSlice'
+import { logout } from '../redux/reducers/authSlice';
 
 function AuthProvider({ children }) {
     const dispatch = useDispatch();
@@ -28,10 +29,10 @@ function AuthProvider({ children }) {
                     }
                 } catch (error) {
                     console.error('Error fetching user data:', error);
-                    dispatch(logOut());
+                    dispatch(logout());
                 }
             } else {
-                dispatch(logOut());
+                dispatch(logout());
             }
             setLoading(false);
         });
