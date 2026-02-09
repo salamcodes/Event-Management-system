@@ -25,8 +25,6 @@ export const addEvent = createAsyncThunk(
             const docRef = await addDoc(eventsRef, {
                 ...eventData,
                 createdBy: auth.currentUser?.uid || null,
-                createdAt: serverTimestamp(),
-                updatedAt: serverTimestamp(),
                 status: eventData.status || 'upcoming',
                 attendees: 0,
                 ticketsValidated: 0,
