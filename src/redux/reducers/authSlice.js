@@ -22,12 +22,12 @@ export const signUp = createAsyncThunk(
                 email: userData.email
             });
 
-            
+
             return {
                 uid: user.uid,
                 email: user.email,
-                name: userData.name,  
-                role: 'user'          
+                name: userData.name,
+                role: 'user'
             };
 
         } catch (error) {
