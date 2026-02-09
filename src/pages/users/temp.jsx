@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { db, auth } from '../../config/firebaseConfig';
+import { db, auth } from '../../config/firebaseConfig.js';
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { Ticket, Calendar, MapPin, QrCode, Search, Loader2 } from 'lucide-react';
 import QRCode from "react-qr-code";
