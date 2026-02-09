@@ -22,7 +22,7 @@ import {
   Search,
   Filter
 } from 'lucide-react';
-import { logOut } from '../../redux/reducers/authSlice';
+import { logout } from '../../redux/reducers/authSlice';
 
 const ManageEvents = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const ManageEvents = () => {
   }, [dispatch]);
 
   const handleLogout = async () => {
-    await dispatch(logOut());
+    await dispatch(logout());
     navigate('/login');
   };
 
