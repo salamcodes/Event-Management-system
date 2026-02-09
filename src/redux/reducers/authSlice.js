@@ -138,6 +138,8 @@ export const authSlice = createSlice({
             .addCase(signUp.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload || { message: 'Error Occured' }
+                state.user = null;
+                state.isAuthenticated = false;
             })
             // login
             .addCase(login.pending, (state) => {
