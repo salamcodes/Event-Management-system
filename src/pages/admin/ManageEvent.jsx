@@ -98,7 +98,7 @@ const ManageEvents = () => {
 
       {/* Scrollable Main Area */}
       <div className="flex-1 flex flex-col h-full overflow-hidden">
-        
+
         {/* Header - Sticky */}
         <header className="bg-white border-b border-slate-200 z-10">
           <div className="px-4 md:px-8 py-4 md:py-6">
@@ -122,7 +122,7 @@ const ManageEvents = () => {
 
         {/* Scrollable Content */}
         <main className="flex-1 overflow-y-auto p-4 md:p-8">
-          
+
           {/* Search and Filter Bar */}
           <div className="bg-white rounded-2xl border border-slate-200 p-4 md:p-6 mb-8 shadow-sm">
             <div className="flex flex-col lg:flex-row gap-4">
@@ -234,8 +234,8 @@ const ManageEvents = () => {
                         <span className="text-slate-900">{getCapacityPercentage(event.attendees, event.capacity)}%</span>
                       </div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-indigo-600 transition-all duration-500" 
+                        <div
+                          className="h-full bg-indigo-600 transition-all duration-500"
                           style={{ width: `${getCapacityPercentage(event.attendees, event.capacity)}%` }}
                         />
                       </div>
@@ -246,8 +246,8 @@ const ManageEvents = () => {
             </div>
           ) : (
             <div className="bg-white rounded-[2rem] border border-dashed border-slate-300 p-12 text-center">
-               <Calendar size={48} className="mx-auto text-slate-200 mb-4" />
-               <p className="text-slate-500 font-bold">No events matching your criteria.</p>
+              <Calendar size={48} className="mx-auto text-slate-200 mb-4" />
+              <p className="text-slate-500 font-bold">No events matching your criteria.</p>
             </div>
           )}
         </main>
