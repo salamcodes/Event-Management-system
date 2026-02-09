@@ -8,7 +8,7 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Dashboard from './pages/users/Dashboard'
 import AdminPanel from './pages/admin/AdminPanel'
-import Mytickets from "./pages/users/MyTickets";
+import MyTickets from "./pages/users/MyTickets";
 import EventDetail from "./pages/users/EventDetail";
 
 import ManageEvent from './pages/admin/ManageEvent'
@@ -46,7 +46,7 @@ function App() {
             path="/mytickets"
             element={
               <ProtectedRoute>
-                <Mytickets />
+                <MyTickets />
               </ProtectedRoute>
             }
           />
