@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { logOut } from '../redux/reducers/authSlice';
+import { logout } from '../redux/reducers/authSlice';
 import {
     LayoutDashboard,
     Users,
@@ -31,7 +31,7 @@ const Sidebar = () => {
     }, [isMobileMenuOpen]);
 
     function handleLogout() {
-        dispatch(logOut());
+        dispatch(logout());
         navigate('/');
         setIsMobileMenuOpen(false);
     }
