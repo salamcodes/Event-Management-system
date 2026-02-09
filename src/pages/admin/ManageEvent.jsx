@@ -99,7 +99,7 @@ const ManageEvents = () => {
       {/* Scrollable Main Area */}
       <div className="flex-1 flex flex-col h-full overflow-hidden">
 
-        {/* Header - Sticky */}
+        {/* Header  */}
         <header className="bg-white border-b border-slate-200 z-10">
           <div className="px-4 md:px-8 py-4 md:py-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -123,7 +123,7 @@ const ManageEvents = () => {
         {/* Scrollable Content */}
         <main className="flex-1 overflow-y-auto p-4 md:p-8">
 
-          {/* Search and Filter Bar */}
+          {/* Search and Filter  */}
           <div className="bg-white rounded-2xl border border-slate-200 p-4 md:p-6 mb-8 shadow-sm">
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
@@ -138,7 +138,7 @@ const ManageEvents = () => {
                 />
               </div>
 
-              {/* Filter */}
+
               <div className="relative w-full lg:w-48">
                 <Filter className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                 <select
@@ -156,14 +156,14 @@ const ManageEvents = () => {
             </div>
           </div>
 
-          {/* Error Message */}
+         
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-red-600 text-sm font-medium">
               {error.message}
             </div>
           )}
 
-          {/* Grid View */}
+      
           {loading === 'loading' ? (
             <div className="text-center py-24">
               <div className="inline-block w-10 h-10 border-4 border-indigo-100 border-t-indigo-600 rounded-full animate-spin"></div>
@@ -188,7 +188,7 @@ const ManageEvents = () => {
                       </span>
                     </div>
 
-                    {/* Actions Menu */}
+                    
                     <div className="absolute top-3 right-3">
                       <button
                         onClick={(e) => { e.stopPropagation(); setActiveDropdown(activeDropdown === event.id ? null : event.id); }}
@@ -209,7 +209,7 @@ const ManageEvents = () => {
                     </div>
                   </div>
 
-                  {/* Details */}
+                 
                   <div className="p-5">
                     <h3 className="font-bold text-slate-900 mb-4 line-clamp-1">{event.name}</h3>
                     <div className="space-y-2.5">
@@ -227,7 +227,7 @@ const ManageEvents = () => {
                       </div>
                     </div>
 
-                    {/* Progress Bar */}
+                  
                     <div className="mt-5">
                       <div className="flex justify-between text-[10px] font-black uppercase text-slate-400 mb-1.5">
                         <span>Fill Rate</span>
@@ -253,7 +253,7 @@ const ManageEvents = () => {
         </main>
       </div>
 
-      {/* Delete Modal */}
+      
       {showDeleteModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
           <div className="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl animate-in zoom-in-95 duration-200">
@@ -270,7 +270,7 @@ const ManageEvents = () => {
         </div>
       )}
 
-      {/* Dropdown Backdrop */}
+     
       {activeDropdown && <div className="fixed inset-0 z-20" onClick={() => setActiveDropdown(null)} />}
     </div>
   );

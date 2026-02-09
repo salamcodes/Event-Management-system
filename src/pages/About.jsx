@@ -9,7 +9,7 @@ const About = () => {
         <div className="bg-white min-h-screen">
             <Navbar />
 
-            {/* Hero Section */}
+
             <section className="py-20 px-6">
                 <div className="max-w-5xl mx-auto text-center">
                     <span className="bg-indigo-50 text-indigo-600 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest">
@@ -26,7 +26,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Stats Section */}
+
             <section className="bg-slate-900 py-16 px-6 rounded-[3rem] mx-4 overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full"></div>
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -44,7 +44,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Core Values - Bento Grid Style */}
+
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <div className="mb-16">
                     <h2 className="text-4xl font-black text-slate-900 mb-4">The Eventopia Way</h2>
@@ -81,7 +81,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Team/Philosophy Section */}
+
             <section className="py-24 px-6 bg-slate-50/50">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
                     <div className="flex-1">

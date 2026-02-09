@@ -16,7 +16,6 @@ const TicketValidation = () => {
   const scannerRef = useRef(null);
 
   useEffect(() => {
-    // Initialize the scanner instance once
     scannerRef.current = new Html5Qrcode("reader");
 
     return () => {
@@ -28,7 +27,7 @@ const TicketValidation = () => {
     setIsCameraActive(true);
     setErrorMsg("");
 
-    // Small delay to ensure the DOM element is visible before starting
+
     setTimeout(() => {
       const config = {
         fps: 10,
@@ -109,7 +108,7 @@ const TicketValidation = () => {
       <Sidebar />
 
       <main className="flex-1 p-4 md:p-8 flex flex-col items-center">
-        <div className="w-full max-w-md"> {/* Constrained width for mobile/desktop */}
+        <div className="w-full max-w-md">
 
           <header className="mb-6 text-center">
             <div className="bg-indigo-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-indigo-100">
@@ -159,7 +158,7 @@ const TicketValidation = () => {
           ) : (
             <div className="space-y-4">
 
-              {/* COMPACT CAMERA AREA */}
+
               <div className="relative mx-auto w-full max-w-[320px] aspect-square bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                 <div id="reader" className="w-full h-full"></div>
 
@@ -186,7 +185,6 @@ const TicketValidation = () => {
                 )}
               </div>
 
-              {/* MANUAL INPUT */}
               <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3">
                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Manual Entry</p>
                 <div className="flex gap-2">
