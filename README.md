@@ -1,4 +1,4 @@
-#Eventopia – Event Management System
+Eventopia – Event Management System
 
 A web-based Event Management System for users and organizers (admins).
 Users can browse events, book tickets, and receive QR-code based tickets, while admins can manage events, track sales, and validate tickets at entry points.
