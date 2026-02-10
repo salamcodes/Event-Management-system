@@ -1,16 +1,63 @@
-# React + Vite
+Eventopia – Event Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based Event Management System for users and organizers.
+Users can browse events, book tickets, and get QR-code tickets.
+Admins can manage events, track sales, and validate tickets at entry.
 
-Currently, two official plugins are available:
+ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Secure Auth
 
-## React Compiler
+Login & Signup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Protected routes (User / Admin)
 
-## Expanding the ESLint configuration
+ User Side
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+View events & details
+
+Book tickets (login required)
+
+QR code ticket generation
+
+Download ticket as image
+
+My Tickets (fetched by user ID)
+
+Admin Side
+
+Dashboard (events, tickets, revenue)
+
+Add / Delete events
+
+Search & Filter events
+
+Attendee list (search & filter by event)
+
+Ticket validation (QR scan / manual ID)
+
+Valid → Allow
+
+Used → Already used
+
+Fake → Not found
+
+Tech Stack
+
+React
+
+Firebase
+
+Tailwind CSS
+
+React Router
+
+Redux Toolkit
+
+react-qr
+
+html5-qrcode
+
+Run Locally
+npm install
+npm run dev
