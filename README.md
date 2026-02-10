@@ -1,20 +1,18 @@
-Eventopia – Event Management System
+#Eventopia – Event Management System
 
-A web-based Event Management System for users and organizers.
-Users can browse events, book tickets, and get QR-code tickets.
-Admins can manage events, track sales, and validate tickets at entry.
+A web-based Event Management System for users and organizers (admins).
+Users can browse events, book tickets, and receive QR-code based tickets, while admins can manage events, track sales, and validate tickets at entry points.
 
- Key Features
-
- Secure Auth
+✨ Key Features
+🔐 Secure Authentication
 
 Login & Signup
 
-Protected routes (User / Admin)
+Protected routes for Users and Admins
 
- User Side
+👤 User Side
 
-View events & details
+Browse events & view details
 
 Book tickets (login required)
 
@@ -24,9 +22,9 @@ Download ticket as image
 
 My Tickets (fetched by user ID)
 
-Admin Side
+🛠️ Admin Side
 
-Dashboard (events, tickets, revenue)
+Dashboard (total events, tickets, revenue)
 
 Add / Delete events
 
@@ -42,7 +40,7 @@ Used → Already used
 
 Fake → Not found
 
-Tech Stack
+🧰 Tech Stack
 
 React
 
@@ -57,7 +55,3 @@ Redux Toolkit
 react-qr
 
 html5-qrcode
-
-Run Locally
-npm install
-npm run dev
