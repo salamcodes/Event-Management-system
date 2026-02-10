@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { logout } from '../redux/reducers/authSlice';
 import { useDispatch } from 'react-redux';
+import { logoutRedux } from '../redux/reducers/authSlice';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -11,10 +12,17 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const { user, isAuthenticated } = useSelector((state) => state.auth);
 
-    async function handleLogout() {
+    useEffect(() => {
+        if (!isAuthenticated) {
+            setOpen(false);
+        }
+    }, [isAuthenticated]);
+
+    const handleLogout = () => {
+        console.log('Logout clicked');
         dispatch(logout());
-        
-    }
+        dispatch(logoutRedux())
+    };
 
     return (
         <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 sticky top-0 z-50">

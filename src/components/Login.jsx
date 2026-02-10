@@ -43,7 +43,7 @@ const Login = () => {
                 </div>
 
                 <div className="px-8 py-10">
-                    {/* Error Message Alert */}
+                    {/* Error Message  */}
                     {status === 'failed' && (
                         <div className="mb-4 rounded-lg bg-red-50 p-4 text-sm text-red-700 border border-red-200">
                             <span className="font-bold">Login Failed:</span> {error?.message || "Invalid credentials"}
@@ -82,7 +82,7 @@ const Login = () => {
                             />
                         </div>
 
-                        {/* Show Password Toggle */}
+                        {/* Show Password */}
                         <div className="flex items-center">
                             <input
                                 id="show-password"
@@ -102,7 +102,7 @@ const Login = () => {
                             disabled={status === 'loading'}
                             className={`w-full flex justify-center items-center rounded-lg py-3 font-bold text-white shadow-md transition-all active:scale-[0.98] ${status === 'loading'
                                 ? 'bg-indigo-400 cursor-not-allowed'
-                                : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg'
+                                : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg cursor-pointer'
                                 }`}
                         >
                             {status === 'loading' ? (

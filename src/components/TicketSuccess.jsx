@@ -1,20 +1,20 @@
 import React, { useRef } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux'; // Added this
+import { useSelector } from 'react-redux'; 
 import QRCode from "react-qr-code";
 import { toPng } from 'html-to-image';
 import { Download, CheckCircle, Home } from 'lucide-react';
 
 const TicketSuccess = () => {
-    const { id } = useParams(); // This is the eventId
+    const { id } = useParams(); 
     const ticketRef = useRef(null);
     const location = useLocation();
 
-    // Get the current user to reconstruct the Ticket ID
+    
     const user = useSelector(state => state.auth.user);
     const quantity = location.state?.quantity || 1;
 
-    // IMPORTANT: This must match the ID generated in your Redux Slice
+   
     const ticketId = `${id}_${user?.uid}`;
 
     const downloadTicket = () => {
@@ -22,7 +22,7 @@ const TicketSuccess = () => {
 
         toPng(ticketRef.current, {
             cacheBust: true,
-            backgroundColor: '#ffffff', // Ensures the PNG has a white background
+            backgroundColor: '#ffffff', 
         })
             .then((dataUrl) => {
                 const link = document.createElement('a');
@@ -42,13 +42,13 @@ const TicketSuccess = () => {
                 <h1 className="text-2xl font-black text-slate-900">Booking Confirmed!</h1>
                 <p className="text-slate-500 mb-8 text-sm">Show this QR code at the entrance.</p>
 
-                {/* THE TICKET ELEMENT (This is what gets downloaded) */}
+               
                 <div ref={ticketRef} className="bg-white p-6 border-2 border-dashed border-slate-200 rounded-[2rem] mb-8">
                     <div className="bg-indigo-600 text-white py-2 rounded-xl mb-6 font-black text-[10px] uppercase tracking-[0.2em]">
                         Official Event Pass
                     </div>
 
-                    {/* QR CODE - Using the corrected actualTicketId */}
+                    {/* QR CODE - */}
                     <div className="flex justify-center mb-6 p-2 bg-white">
                         <QRCode
                             size={180}
@@ -65,7 +65,7 @@ const TicketSuccess = () => {
                         <div className="text-right">
                             <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest">Holder</p>
                             <p className="text-sm font-bold text-slate-800 truncate w-24">
-                                {user?.displayName?.split(' ')[0] || "Guest"}
+                                {user?.name?.split(' ')[0] || "Guest"}
                             </p>
                         </div>
                     </div>

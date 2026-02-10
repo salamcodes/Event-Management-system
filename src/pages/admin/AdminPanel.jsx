@@ -39,7 +39,7 @@ const AdminPanel = () => {
 
   const statsCards = [
     { title: 'Total Events', value: events.length, icon: <Calendar size={20} />, textColor: 'text-indigo-600', lightColor: 'bg-indigo-50' },
-    { title: 'Total Attendees', value: totalAttendees.toLocaleString(),  icon: <Users size={20} />, textColor: 'text-emerald-600', lightColor: 'bg-emerald-50' },
+    { title: 'Total Attendees', value: totalAttendees.toLocaleString(), icon: <Users size={20} />, textColor: 'text-emerald-600', lightColor: 'bg-emerald-50' },
     { title: 'Validated', value: ticketsValidated.toLocaleString(), icon: <TicketCheck size={20} />, textColor: 'text-blue-600', lightColor: 'bg-blue-50' },
     { title: 'Revenue', value: `Rs. ${totalRevenue.toLocaleString()}`, icon: <DollarSign size={20} />, textColor: 'text-purple-600', lightColor: 'bg-purple-50' },
   ];
@@ -60,6 +60,7 @@ const AdminPanel = () => {
 
       <div className="flex-1 min-w-0">
         <header className="bg-white border-b border-slate-200 sticky top-0 z-30">
+
           <div className="px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 bg-slate-100 rounded-xl text-slate-600">
@@ -68,7 +69,7 @@ const AdminPanel = () => {
               <div>
                 <h1 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">Dashboard</h1>
                 <p className="hidden sm:block text-xs text-slate-500 font-medium">
-                  Welcome back, <span className="text-indigo-600 font-bold">{user?.user?.displayName || 'Admin'}</span>
+                  Welcome back, <span className="text-indigo-600 font-bold">{user?.user?.name || 'Admin'}</span>
                 </p>
               </div>
             </div>
@@ -91,9 +92,7 @@ const AdminPanel = () => {
                   <div className={`${stat.textColor} p-3 rounded-2xl ${stat.lightColor}`}>
                     {stat.icon}
                   </div>
-                  <div className="flex items-center gap-1 text-[10px] font-black text-green-600 bg-green-50 px-2 py-1 rounded-lg">
-                    <TrendingUp size={10} /> {stat.change}
-                  </div>
+
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">{stat.value}</h3>
                 <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.15em] mt-1">{stat.title}</p>

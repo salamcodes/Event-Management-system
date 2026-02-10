@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/reducers/authSlice';
+import { logoutRedux } from '../redux/reducers/authSlice';
 import {
     LayoutDashboard,
     Users,
@@ -32,6 +33,7 @@ const Sidebar = () => {
 
     function handleLogout() {
         dispatch(logout());
+        dispatch(logoutRedux())
         navigate('/');
         setIsMobileMenuOpen(false);
     }
@@ -55,7 +57,7 @@ const Sidebar = () => {
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Overlay */}
+            
             {isMobileMenuOpen && (
                 <div
                     className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
@@ -63,7 +65,7 @@ const Sidebar = () => {
                 />
             )}
 
-            {/* Sidebar */}
+            
             <aside
                 className={`
           w-72 h-screen lg:h-auto bg-white border-r border-slate-200 flex flex-col
@@ -72,7 +74,7 @@ const Sidebar = () => {
           ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
             >
-                {/* Branding */}
+                
                 <div className="p-8 border-b border-slate-100">
                     <div className="flex items-center gap-3">
                         <div className="bg-indigo-600 p-2 rounded-xl">

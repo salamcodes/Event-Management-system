@@ -9,7 +9,7 @@ export const addTicket = createAsyncThunk(
         try {
             if (!auth.currentUser) throw new Error("User must be logged in");
 
-            const ticketId = `${eventId}_${auth.currentUser.uid}`;
+            const ticketId = Math.floor(100000 + Math.random() * 900000).toString();
             const ticketRef = doc(db, "tickets", ticketId);
 
             const ticketData = {

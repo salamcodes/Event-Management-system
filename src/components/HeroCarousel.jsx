@@ -31,11 +31,11 @@ const slides = [
 const HeroCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Auto-play logic
+    
     useEffect(() => {
         const timer = setInterval(() => {
             nextSlide();
-        }, 5000); // Change slide every 5 seconds
+        }, 5000); 
         return () => clearInterval(timer);
     }, [currentIndex]);
 
@@ -53,21 +53,21 @@ const HeroCarousel = () => {
 
     return (
         <div className="relative h-[500px] w-full group overflow-hidden bg-gray-900">
-            {/* Slides Container */}
+            
             <div
                 className="flex h-full transition-transform duration-700 ease-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
                 {slides.map((slide) => (
                     <div key={slide.id} className="w-full h-full flex-shrink-0 relative">
-                        {/* Background Image */}
+                       
                         <img
                             src={slide.image}
                             alt={slide.title}
                             className="w-full h-full object-cover opacity-60"
                         />
 
-                        {/* Content Overlay */}
+                        {/* Content */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                             <h2 className="text-4xl md:text-6xl font-black text-white mb-4 animate-fade-in-up">
                                 {slide.title}
@@ -86,7 +86,7 @@ const HeroCarousel = () => {
                 ))}
             </div>
 
-            {/* Navigation Arrows */}
+            
             <button
                 onClick={prevSlide}
                 className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white hover:bg-black/50 transition-all"
@@ -100,7 +100,6 @@ const HeroCarousel = () => {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
 
-            {/* Dot Indicators */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
                 {slides.map((_, index) => (
                     <button
