@@ -35,7 +35,7 @@ const Home = () => {
 
         <main className="max-w-7xl mx-auto py-12 px-4">
           <div className="flex justify-between items-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900">Upcoming Events</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Events</h2>
             <button className="text-indigo-600 font-semibold hover:underline">View All</button>
           </div>
 

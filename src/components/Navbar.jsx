@@ -7,7 +7,7 @@ import { logoutRedux } from '../redux/reducers/authSlice';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const navigate = useNavigate()
+    
 
     const dispatch = useDispatch()
     const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -19,7 +19,6 @@ const Navbar = () => {
     }, [isAuthenticated]);
 
     const handleLogout = () => {
-        console.log('Logout clicked');
         dispatch(logout());
         dispatch(logoutRedux())
     };
@@ -92,7 +91,7 @@ const Navbar = () => {
                                 {/* Attendee Dropdown Menu */}
                                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 border border-gray-100 overflow-hidden">
                                     <Link to="/profile" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Profile Settings</Link>
-                                    <Link to="/" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Booked Events</Link>
+                                    <Link to="/mytickets" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Booked Events</Link>
                                     <div className="h-px bg-gray-100 my-1"></div>
                                     <button
                                         onClick={handleLogout}

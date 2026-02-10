@@ -21,7 +21,6 @@ const SignUp = () => {
         try {
 
             const result = await dispatch(signUp(userData)).unwrap();
-
             navigate('/login');
         } catch (error) {
             console.error('Signup failed:', error);

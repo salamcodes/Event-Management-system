@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../config/firebaseConfig';
 import { setUser } from '../redux/reducers/authSlice'
 import { logout } from '../redux/reducers/authSlice';
+import { logoutRedux } from '../redux/reducers/authSlice';
 
 function AuthProvider({ children }) {
     const dispatch = useDispatch();
@@ -25,14 +26,14 @@ function AuthProvider({ children }) {
                             role: userData.role
                         }));
                     } else {
-                        dispatch(logOut());
+                        dispatch(logoutRedux());
                     }
                 } catch (error) {
                     console.error('Error fetching user data:', error);
-                    dispatch(logout());
+                    dispatch(logoutRedux());
                 }
             } else {
-                dispatch(logout());
+                dispatch(logoutRedux());
             }
             setLoading(false);
         });
