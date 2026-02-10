@@ -33,16 +33,28 @@ Users can browse events, view event details, book tickets, and receive **QR-code
     - Already used → Ticket cannot be used again
     - Fake / Not found → No ticket with this ID
 
+## Demo Accounts
+
+You can use the following demo accounts to test the application:
+
+User  
+- Sign up using any email and password to test user features
+
+Admin  
+- Email: admin@gmail.com  
+- Password: admin786  
+
 ## Tech Stack
 - React
 - Firebase (Authentication, Firestore)
 - Tailwind CSS
-- React Router
-- Redux Toolkit
+
 
 ### Libraries / Tools
-- **react-qr**: QR code generation for tickets
-- **html5-qrcode**: QR code scanning for ticket validation
+- **react-qr**: QR code generation for tickets  
+- **html5-qrcode**: QR code scanning for ticket validation  
+- React Router (Routing)
+- Redux Toolkit (state management)
 
 ## Run Locally
 
