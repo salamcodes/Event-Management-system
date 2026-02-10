@@ -271,7 +271,7 @@ const EventForm = () => {
                     <button
                         type="submit"
                         disabled={loading === 'loading'}
-                        className="flex-[2] py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-black shadow-lg shadow-indigo-200 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="flex-[2] py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-black shadow-lg shadow-indigo-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                         {loading === 'loading' ? 'Creating Event...' : 'Create Event'}
                     </button>
