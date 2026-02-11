@@ -60,7 +60,7 @@ Admin
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/eventopia.git
+git clone https://github.com/salamcodes/eventopia.git
 
 # Navigate to the project folder
 cd eventopia
