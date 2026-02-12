@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "dotenv": "^17.2.4",
     "firebase": "^12.9.0",
     "html-to-image": "^1.11.13",
     "html5-qrcode": "^2.3.8",
